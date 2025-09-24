@@ -82,6 +82,12 @@
       .accordion-content p {
         margin: 15px 0;
       }
+
+      #openall {
+        display: block;
+        margin: 20px auto;
+        padding: 10px 20px;
+      }
     </style>
   </head>
   <body>
@@ -113,6 +119,7 @@
         </div>
       </div>
     </div>
+    <button id="openall">open all sections</button>
 
     <script>
       const header = document.querySelectorAll(".accordion-header");
@@ -128,9 +135,14 @@
 
             header.classlist.add('active');
 
-            
+            const content = header.nextElementSibling;
+            if (content) content.style.maxheight = "81px";
           })
       });
+
+      const openall = document.getElementById("openall")
+
+
 
     </script>
   </body>
