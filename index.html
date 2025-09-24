@@ -88,6 +88,8 @@
         margin: 20px auto;
         padding: 10px 20px;
       }
+
+
     </style>
   </head>
   <body>
@@ -127,22 +129,31 @@
       header.forEach((h) => {
           h.addEventListener("click", () => {
 
-            headers.foreach((h) => {
-              h.classlist.remove("active");
+            header.forEach((h) => {
+              h.classList.remove("active");
               const content = h.nextElementSibling;
-              if (content) content.style.maxheight = "0px";
+              if (content) content.style.maxHeight = "0px";
             });
 
-            header.classlist.add('active');
+            h.classList.add("active");
 
-            const content = header.nextElementSibling;
-            if (content) content.style.maxheight = "81px";
+            const content = h.nextElementSibling;
+            if (content) content.style.maxHeight = "81px";
           })
       });
 
       const openall = document.getElementById("openall")
 
+      openall.addEventListener("click", () => {
+        const header = document.querySelectorAll(".accordion-header");
 
+        header.forEach((h) => {
+          h.classList.add("active");
+
+          const content = h.nextElementSibling;
+          if (content) content.style.maxHeight = "81px";
+        });
+      });
 
     </script>
   </body>
