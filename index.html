@@ -117,7 +117,16 @@
     <script>
       const header = document.querySelectorAll(".accordion-header");
 
-      
+      header.forEach((h) => {
+          h.addEventListener("click", () => {
+
+            headers.foreach((h) => {
+              h.classlist.remove("active");
+              const content = h.nextElementSibling;
+              if (content) content.style.maxheight = "0px";
+            });
+          })
+      });
 
     </script>
   </body>
